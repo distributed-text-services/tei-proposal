@@ -1,5 +1,5 @@
 # tei-proposal
-Test repository for a new proposal for TEI
+Test repository for a new proposal for TEI. TEI provides a method for defining canonical references and the means to resolve them, but does not give us a method for actually defining how such references are structured. E.g., given a reference like "1.1", what is "1"?, what is ".1"?
 
 ## Requirements:
 1. Able to say what unit it's refering to
