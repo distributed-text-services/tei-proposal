@@ -1,5 +1,5 @@
 # Revised Proposal
-(Changes from <NewProposal.md>: different element and attribute names; `@delim` on child `<structurePath>`s.
+(Changes from [NewProposal.md](NewProposal.md): different element and attribute names; `@delim` on child `<structurePath>`s.
 
 `<structurePart>` takes a different angle on the definition of "canonical" references than `<cRefPattern>`.
 It permits an application to address and extract parts of the TEI document declaring its structure,
