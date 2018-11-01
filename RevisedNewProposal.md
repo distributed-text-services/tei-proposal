@@ -16,20 +16,20 @@ be an `@xml:id`, or a labeling attribute like `@n`, or even a positional referen
 be possible to construct an XPath that will retrieve an element referenced by <structurePart> by constructing
 a predicate on the XPath in `@match` using the value for a given element of the XPath in `@use`.
              
-`<structurePath>` also has an optional attribute, `@delim`, which can be used as a hint for the construction of 
+`<structurePart>` also has an optional attribute, `@delim`, which can be used as a hint for the construction of 
 canonical references, e.g. "1.2" for the poem `<div n="1">` and the `<l n="2">`. In those references,
 the value of `@delim` should be assumed to come before the referenced unit. So, in example 2 (again, assuming a 
-reference style like "1.2"), the line `<structurePath>` is the one that has a `@delim`.
+reference style like "1.2"), the line `<structurePart>` is the one that has a `@delim`.
              
-`<structurePath>`s may nest, and a relative XPath in `@match` is assumed to start from the element(s) matched
-by the parent `<structurePath>`. See example 2 below. 
+`<structurePart>`s may nest, and a relative XPath in `@match` is assumed to start from the element(s) matched
+by the parent `<structurePart>`. See example 2 below. 
              
 `<structureData>` provides a way for a document to declare how certain types of data can be extracted from the
-structures mapped out by `<structurePath>`. In examples 1 and 2, a Dublin Core Title can be obtained for each
+structures mapped out by `<structurePart>`. In examples 1 and 2, a Dublin Core Title can be obtained for each
 front section or poem by getting the `<head>` element from each.
              
 `<structureData>` has two required attributes, `@property` (analogous to `@property` in RDFa), a URI, and `@use`,
-a relative XPath exactly like `@use` on `<structurePath>`. 
+a relative XPath exactly like `@use` on `<structurePart>`. 
 
 ```xml
 <encodingDesc>
