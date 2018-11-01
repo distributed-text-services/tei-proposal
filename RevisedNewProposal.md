@@ -3,9 +3,9 @@
 
 `<citeStructure>` takes a different angle on the definition of "canonical" references than [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html).
 It permits an application to address and extract parts of the TEI document declaring its structure,
-and can provide hints on how to construct canonical references. <citeData> allows TEI documents
+and can provide hints on how to construct canonical references. `<citeData>` allows TEI documents
 to declare how metadata can be extracted from those parts. Instead of telling an application how to
-resolve canonical references, as <cRefPattern> does, this tells the application how to build them using
+resolve  references, as `<cRefPattern>` does, this tells the application how to *build* them using
 the TEI document as a data source.
         
 `<citeStructure>` has three required attributes, `@unit`, a label specifying what kind of unit this level
