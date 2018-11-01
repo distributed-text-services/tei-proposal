@@ -1,7 +1,7 @@
 # Revised Proposal
 (Changes from [NewProposal.md](NewProposal.md): different element and attribute names; `@delim` on child `<structurePath>`s.
 
-`<structurePart>` takes a different angle on the definition of "canonical" references than `<cRefPattern>`.
+`<structurePart>` takes a different angle on the definition of "canonical" references than [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html).
 It permits an application to address and extract parts of the TEI document declaring its structure,
 and can provide hints on how to construct canonical references. <structureData> allows TEI documents
 to declare how metadata can be extracted from those parts. Instead of telling an application how to
