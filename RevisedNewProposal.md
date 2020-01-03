@@ -1,10 +1,11 @@
 # Revised Proposal
-(Changes from [NewProposal.md](NewProposal.md): different element and attribute names; `@delim` on child `<structurePath>`s.
 
-`<citeStructure>` takes a different angle on the definition of "canonical" references than [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html).
-It permits an application to address and extract parts of the TEI document declaring its structure,
-and can provide hints on how to construct canonical references. `<citeData>` allows TEI documents
-to declare how metadata can be extracted from those parts. Instead of telling an application how to
+The TEI element [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html) defines a mechanism for resolving "canonical" references into machine-actionable URIs. While it permits automated resolution of these references, it does not provide for the automated *construction* of references. So while TEI documents can declare how citations should be treated, they can't actually declare how those citations should be made. This means systems that might want to do things with a document's citation structure, like automatically chunk a large document into smaller pieces or generate an automatic table of contents are at a disadvantage.
+
+We are proposing two new elements to allow documents to declare their citation structure and to specify how structural infomration may be extracted from them:
+
+`<citeStructure>` permits an application to address and extract parts of the TEI document declaring its structure,
+and can provide hints on how to construct canonical references. Instead of telling an application how to
 resolve  references, as `<cRefPattern>` does, this tells the application how to *build* them using
 the TEI document as a data source.
         
@@ -33,17 +34,18 @@ a relative XPath exactly like `@use` on `<citeStructure>`.
 
 ```xml
 <encodingDesc>
-    <refsDecl type="DTS">
-        <!-- Example 1 -->
+    <refsDecl>
+        <!-- Example 1: Units of the introductory front matter may be cited, e.g. "Intro. 1" -->
         <citeStructure unit="front"
-            match="//front/div[@type='introduction']/div[@type='section']" use="@n"> 
+            match="//front/div[@type='introduction']/div[@type='section']" 
+            use="@n" delim="Intro. "> 
             <!-- The thing(s) matched by ../@match have titles at the location ./head. 
                  Assume the prefix "dc" has been declared using a <prefixDef> elsewhere.
                  Multiple <head>s in the matched <div> would mean multiple dc:titles being
                  extracted for that div.-->
             <citeData property="dc:title" use="head" /> 
         </citeStructure>
-        <!-- Example 2 -->
+        <!-- Example 2: Poems may be cited as, e.g. "1", lines as, e.g. "1.5" -->
         <citeStructure unit="poem"
             match="//body/div[@type='edition']/div[@type='textpart']" use="@n">
             <citeData property="dc:title" use="head" />
@@ -52,5 +54,17 @@ a relative XPath exactly like `@use` on `<citeStructure>`.
             </citeStructure>
         </citeStructure>
     </refsDecl>
+</encodingDesc>
+```
+The following example is the equivalent of the one given for `<cRefPattern>` in https://www.tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SACR and could be used (with a different algorithm) both to resolve citations of the type "Matt 5:7" and/or to generate a set of resolvable citations at any level.
+```xml
+<encodingDesc>
+  <refsDecl>
+    <citeStructure unit="book" match="//body/div" use="@n">
+      <citeStructure unit="chapter" match="div" use="position()" delim=" ">
+        <citeStructure unit="verse" match="div" use="position()" delim=":"/>
+      </citeStructure>
+    </citeStructure>
+  </refsDecl>
 </encodingDesc>
 ```
