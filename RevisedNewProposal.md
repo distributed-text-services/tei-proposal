@@ -14,7 +14,7 @@ of structure refers to, e.g., "book", "line", or "section"; `@match`, an XPath t
 find each unit in of the given type in the document; `@use`, an XPath, relative to the element(s) matched
 by `@match` that gives a mechanism for uniquely identifying the element(s) referenced by `@match`. This could
 be an `@xml:id`, or a labeling attribute like `@n`, or even a positional reference like `position()`. It should
-be possible to construct an XPath that will retrieve an element referenced by <citeStructure> by constructing
+be possible to construct an XPath that will retrieve an element referenced by `<citeStructure>` by constructing
 a predicate on the XPath in `@match` using the value for a given element of the XPath in `@use`.
              
 `<citeStructure>` also has an optional attribute, `@delim`, which can be used as a hint for the construction of 
