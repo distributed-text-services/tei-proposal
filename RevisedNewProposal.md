@@ -1,6 +1,6 @@
 # Revised Proposal
 
-The TEI element [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html) defines a mechanism for resolving "canonical" references into machine-actionable URIs. While it permits automated resolution of these references, it does not provide for the automated *construction* of references. So while TEI documents can declare how citations should be treated, they can't actually declare how those citations should be made. This means systems that might want to do things with a document's citation structure, like automatically chunk a large document into smaller pieces or generate an automatic table of contents are at a disadvantage.
+The TEI element [`<cRefPattern>`](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-cRefPattern.html) defines a mechanism for resolving "canonical" references into machine-actionable URIs. While it permits automated resolution of these references, it does not provide for the automated *construction* of references. So while TEI documents can declare how citations should be treated, they can't actually declare how those citations should be made. This means systems that might want automatically to do things with a document's citation structure, like chunk a large document into smaller pieces or generate a table of contents are at a disadvantage.
 
 We are proposing two new elements to allow documents to declare their citation structure and to specify how structural infomration may be extracted from them:
 
